@@ -1,0 +1,22 @@
+[
+    {
+        "timestamp": "2026-05-24T19:41:32.100996",
+        "age": 40,
+        "policy_state": "IN",
+        "total_claim_amount": 38069.0,
+        "auto_make": "Saab",
+        "auto_model": "92x",
+        "prediction": "Genuine Claim",
+        "fraud_probability": 47.65
+    },
+    {
+        "timestamp": "2026-05-24T19:35:57.835802",
+        "age": 40,
+        "policy_state": "OH",
+        "total_claim_amount": 2120.0,
+        "auto_make": "Saab",
+        "auto_model": "92x",
+        "prediction": "Genuine Claim",
+        "fraud_probability": 22.38
+    }
+]

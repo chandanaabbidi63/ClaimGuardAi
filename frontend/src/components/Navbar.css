@@ -1,0 +1,200 @@
+/* ============================================
+   NAVBAR
+   ============================================ */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(10, 14, 26, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border-glass);
+  transition: all var(--transition-base);
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+/* Brand */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.35rem;
+  transition: opacity var(--transition-fast);
+}
+
+.navbar-brand:hover {
+  opacity: 0.85;
+  color: var(--text-primary);
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background: var(--accent-gradient);
+  border-radius: var(--radius-sm);
+  font-size: 1.3rem;
+  color: white;
+  box-shadow: var(--shadow-accent);
+}
+
+.navbar-title-accent {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Links */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar-link {
+  position: relative;
+  padding: 8px 18px;
+  font-size: 0.925rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.navbar-link:hover {
+  color: var(--text-primary);
+  background: rgba(59, 130, 246, 0.08);
+}
+
+.navbar-link--active {
+  color: var(--accent-primary);
+}
+
+.navbar-link-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 2px;
+  background: var(--accent-gradient);
+  border-radius: 1px;
+}
+
+/* CTA Button */
+.navbar-cta {
+  margin-left: 12px;
+  padding: 9px 22px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: white;
+  background: var(--accent-gradient);
+  border: none;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-accent);
+}
+
+.navbar-cta:hover {
+  background: var(--accent-gradient-hover);
+  box-shadow: var(--shadow-accent-lg);
+  transform: translateY(-1px);
+  color: white;
+}
+
+/* Mobile Toggle */
+.navbar-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.navbar-toggle:hover {
+  border-color: var(--accent-primary);
+  background: rgba(59, 130, 246, 0.08);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .navbar-inner {
+    height: 64px;
+  }
+
+  .navbar-toggle {
+    display: flex;
+  }
+
+  .navbar-links {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding: 20px;
+    background: rgba(10, 14, 26, 0.97);
+    backdrop-filter: blur(24px);
+    transform: translateX(100%);
+    transition: transform var(--transition-base);
+  }
+
+  .navbar-links--open {
+    transform: translateX(0);
+  }
+
+  .navbar-link {
+    padding: 14px 18px;
+    font-size: 1.05rem;
+    border-radius: var(--radius-md);
+  }
+
+  .navbar-link-indicator {
+    display: none;
+  }
+
+  .navbar-link--active {
+    background: rgba(59, 130, 246, 0.1);
+  }
+
+  .navbar-cta {
+    margin-left: 0;
+    margin-top: 12px;
+    text-align: center;
+    padding: 14px;
+    font-size: 1rem;
+    border-radius: var(--radius-md);
+  }
+}

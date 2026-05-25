@@ -1,0 +1,291 @@
+/* ============================================
+   RESULT CARD
+   ============================================ */
+
+.result-page {
+  padding: 120px 24px 80px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.result-container {
+  max-width: 560px;
+}
+
+.result-card {
+  padding: 48px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.result-card--fraud {
+  border-color: rgba(239, 68, 68, 0.2);
+}
+
+.result-card--genuine {
+  border-color: rgba(34, 197, 94, 0.2);
+}
+
+/* Subtle glow overlay */
+.result-card--fraud::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(239, 68, 68, 0.04), transparent 50%);
+  pointer-events: none;
+}
+
+.result-card--genuine::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(34, 197, 94, 0.04), transparent 50%);
+  pointer-events: none;
+}
+
+/* Icon */
+.result-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.result-icon--fraud {
+  background: var(--fraud-bg);
+  color: var(--fraud-color);
+  box-shadow: 0 0 30px var(--fraud-glow);
+}
+
+.result-icon--genuine {
+  background: var(--genuine-bg);
+  color: var(--genuine-color);
+  box-shadow: 0 0 30px var(--genuine-glow);
+}
+
+.result-icon {
+  font-size: 2rem;
+}
+
+/* Verdict */
+.result-verdict {
+  font-size: 1.75rem;
+  margin-bottom: 8px;
+}
+
+.verdict--fraud {
+  color: var(--fraud-color);
+}
+
+.verdict--genuine {
+  color: var(--genuine-color);
+}
+
+.result-desc {
+  font-size: 0.925rem;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ============================================
+   GAUGE
+   ============================================ */
+
+.result-gauge-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.gauge-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.gauge-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.gauge-progress {
+  transition: stroke-dashoffset 0.05s linear;
+}
+
+.gauge-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.gauge-value {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  font-weight: 700;
+}
+
+.gauge-value--fraud {
+  color: var(--fraud-color);
+}
+
+.gauge-value--genuine {
+  color: var(--genuine-color);
+}
+
+.gauge-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+
+/* ============================================
+   RISK BADGE
+   ============================================ */
+
+.risk-badge {
+  display: inline-flex;
+  padding: 6px 20px;
+  border-radius: 50px;
+  font-size: 0.825rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 32px;
+}
+
+.risk--low {
+  background: var(--genuine-bg);
+  color: var(--genuine-color);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+}
+
+.risk--medium {
+  background: var(--warning-bg);
+  color: var(--warning-color);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.risk--high {
+  background: rgba(249, 115, 22, 0.12);
+  color: #f97316;
+  border: 1px solid rgba(249, 115, 22, 0.25);
+}
+
+.risk--critical {
+  background: var(--fraud-bg);
+  color: var(--fraud-color);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+/* ============================================
+   DETAILS
+   ============================================ */
+
+.result-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--border-secondary);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+
+.result-detail-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background: var(--bg-secondary);
+}
+
+.detail-label {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.detail-value {
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.detail-value--fraud {
+  color: var(--fraud-color);
+}
+
+.detail-value--genuine {
+  color: var(--genuine-color);
+}
+
+/* ============================================
+   RESET BUTTON
+   ============================================ */
+
+.result-reset-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  font-family: var(--font-body);
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: white;
+  background: var(--accent-gradient);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-accent);
+}
+
+.result-reset-btn:hover {
+  box-shadow: var(--shadow-accent-lg);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .result-page {
+    padding: 100px 16px 60px;
+  }
+
+  .result-card {
+    padding: 32px 24px;
+  }
+
+  .gauge-container {
+    width: 160px;
+    height: 160px;
+  }
+
+  .gauge-value {
+    font-size: 1.75rem;
+  }
+
+  .result-verdict {
+    font-size: 1.5rem;
+  }
+}
