@@ -1,11 +1,11 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: 'http://127.0.0.1:8000',
+  baseURL: import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000',
   headers: {
     'Content-Type': 'application/json',
   },
-  timeout: 15000,
+  timeout: 120000, // Increased to 120 seconds to accommodate Render free tier cold starts
 });
 
 // Response interceptor for error handling

@@ -2,7 +2,9 @@ import json
 import os
 from datetime import datetime
 
-HISTORY_FILE = "saved_models/history.json"
+# Determine path relative to backend directory (one level up from services)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+HISTORY_FILE = os.path.join(BASE_DIR, "saved_models", "history.json")
 
 def get_history():
     if not os.path.exists(HISTORY_FILE):

@@ -2,19 +2,19 @@ import os
 import pandas as pd
 import numpy as np
 
-CSV_PATH = "../fraud_insurance_claims.csv"
+# Determine backend directory (one level up from services)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# fraud_insurance_claims.csv is in the parent of the backend directory (repository root)
+CSV_PATH = os.path.join(os.path.dirname(BASE_DIR), "fraud_insurance_claims.csv")
 
 def get_dataset_stats():
-    # Attempt to locate the CSV file in multiple places
+    # Attempt to locate the CSV file
     path = CSV_PATH
     if not os.path.exists(path):
-        # Try local folder
-        path = "fraud_insurance_claims.csv"
+        # Fallback to backend root if it's there
+        path = os.path.join(BASE_DIR, "fraud_insurance_claims.csv")
         if not os.path.exists(path):
-            # Try parent's parent
-            path = "../../fraud_insurance_claims.csv"
-            if not os.path.exists(path):
-                return {"error": "Dataset fraud_insurance_claims.csv not found"}
+            return {"error": "Dataset fraud_insurance_claims.csv not found"}
 
     try:
         df = pd.read_csv(path)

@@ -9,9 +9,11 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 from imblearn.over_sampling import SMOTE
 from xgboost import XGBClassifier
 
-CSV_PATH = "../fraud_insurance_claims.csv"
-MODEL_DIR = "saved_models"
-METRICS_FILE = "saved_models/metrics.json"
+# Determine backend directory (one level up from services)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+CSV_PATH = os.path.join(os.path.dirname(BASE_DIR), "fraud_insurance_claims.csv")
+MODEL_DIR = os.path.join(BASE_DIR, "saved_models")
+METRICS_FILE = os.path.join(MODEL_DIR, "metrics.json")
 
 def get_current_metrics():
     if os.path.exists(METRICS_FILE):
@@ -32,11 +34,9 @@ def get_current_metrics():
 def retrain_model():
     path = CSV_PATH
     if not os.path.exists(path):
-        path = "fraud_insurance_claims.csv"
+        path = os.path.join(BASE_DIR, "fraud_insurance_claims.csv")
         if not os.path.exists(path):
-            path = "../../fraud_insurance_claims.csv"
-            if not os.path.exists(path):
-                return {"error": "Dataset fraud_insurance_claims.csv not found"}
+            return {"error": "Dataset fraud_insurance_claims.csv not found"}
 
     try:
         # Load dataset

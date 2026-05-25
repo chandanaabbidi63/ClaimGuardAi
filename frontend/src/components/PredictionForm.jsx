@@ -138,7 +138,11 @@ function PredictionForm() {
       setResult(response.data);
     } catch (err) {
       console.error(err);
-      setError('Prediction failed. Make sure the backend is running at http://127.0.0.1:8000');
+      if (err.code === 'ECONNABORTED' || err.message?.includes('timeout') || err.message?.includes('Network Error')) {
+        setError('Request timed out or failed to connect. (Note: Render\'s free tier web services spin down after inactivity; the first request can take up to 2 minutes to spin up. Please try clicking the button again now that the spin-up has been triggered!)');
+      } else {
+        setError('Prediction failed. Please make sure the backend is running and reachable.');
+      }
     } finally {
       setLoading(false);
     }
